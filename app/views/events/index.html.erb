@@ -1,0 +1,11 @@
+<%= link_to "<< Back", current_user %>
+
+<h1>All Events</h1>
+<h3>Upcoming</h3>
+<% @upcoming.each do |event| %>
+	<%= link_to event.name, event %>
+<% end %>
+<h3>Past</h3>
+<% @past.each do |event| %>
+	<%= link_to event.name, event %> <br>
+<% end %>

@@ -1,0 +1,12 @@
+<%= link_to "Login", login_path %>
+
+<h1>Welcome to Private Events</h1>
+
+<%= link_to "Signup!", signup_path %>
+
+<h3>Events list:</h3>
+
+<% @events.each do |event| %>
+	<%= link_to event.name, event %> <br>
+
+<% end %>

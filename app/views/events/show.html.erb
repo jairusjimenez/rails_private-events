@@ -1,0 +1,41 @@
+<% provide(:title, @event.name) %>
+
+<% if logged_in? %>
+	<%= link_to "<< Back", current_user %>
+
+<% else %>
+	<%= link_to "<< Back", root_url %>
+<% end %>
+
+<h1><%= @event.name %></h1>
+<span>Created by: <%= @event.creator.name %></span> <br>
+<span><i><%= @event.location %>, <%= @event.date.strftime("%B %d, %Y") %></i></span> 
+
+<br><br>
+
+<% if @event.attendees.include?(current_user) %>
+	<%= form_for(current_user.invites.find_by(attended_event_id: @event.id), :html => { :method => :delete }) do |f| %>
+		<%= f.submit "Leave Event", class: "btn btn-danger" %>
+	<% end %>
+<% else %>
+	<% if current_user.id != @event.creator_id %>
+		<%= form_for(current_user.invites.build(attended_event_id: @event.id)) do |f| %>
+			  <%= f.hidden_field :attended_event_id, :value => @event.id %>
+				<%= f.submit "Attend Event"%>
+		<% end %>
+	<% end %>
+<% end %>
+
+<% if @attendees.any? %>
+	<h3>Attendees:</h3>
+	<% @attendees.each do |attendee| %>
+		<span>
+			<%= attendee.name %> <br>
+		</span>
+	<% end %>
+<% else %>
+	<h3><i>None yet</i></h3>
+<% end %>
+
+
+

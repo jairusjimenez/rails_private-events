@@ -1,0 +1,26 @@
+<%= provide(:title, @user.name) %>
+
+<% if logged_in? %>
+	<%= link_to "Logout", logout_path, method: "delete" %>
+
+<% end %>
+<h1>Welcome, <%= @user.name %></h1>
+<%= link_to "Create a new event", create_event_path %> <br>
+<%= link_to "Event Index", events_path %>
+
+<h3>Created events:</h3>
+
+<% @created_events.each do |event| %>
+	<%= link_to event.name, event %> <br>
+
+<% end %>
+
+<h3>Available events:</h3>
+
+<% @avail_events.each do |event| %>
+	<% if event.creator_id != @user.id %>
+		<%= link_to event.name, event %> <br>
+	<% end %>
+
+<% end %>
+
