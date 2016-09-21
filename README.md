@@ -1,24 +1,8 @@
-# README
+Documentation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<hr>
 
-Things you may want to cover:
+This repository is part of <a href="http://www.theodinproject.com/home">The Odin Project</a>. This project utilizes Ruby on Rails to build a site similar to a private <a href="https://www.eventbrite.com/">Eventbrite</a> which enables users to create events and send invitations. The site has been styled through the use of Bootstrap and borrows from the Hartl Tutorial's CSS code.
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+preview: <a href="https://mighty-sea-16177.herokuapp.com/">Heroku</a>
